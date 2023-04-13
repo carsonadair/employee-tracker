@@ -123,7 +123,7 @@ const createRole = () => {
         let id = data.dep_name.slice(0, 1);
         console.log(id);
         questionData
-          .addRole(data.role_name, data.salary, id)
+          .createRole(data.role_name, data.salary, id)
           .then(([rows, fields]) => {
             console.table(rows);
             startQuestions();
@@ -186,7 +186,7 @@ const createEmployee = () => {
             .then((data) => {
               let id = data.employee.slice(0, 1);
               questionData
-                .addEmployee(firstName, lastName, roleId, id)
+                .createEmployee(firstName, lastName, roleId, id)
                 .then(([rows, fields]) => {
                   console.table(rows);
                   startQuestions();
@@ -197,7 +197,7 @@ const createEmployee = () => {
   });
 };
 
-//function: WHEN I choose to update an employee role THEN I am prompted to select an employee to update and their new role and this information is updated in the database
+
 const updateEmployee = () => {
   questionData.viewEmployees().then(([rows, fields]) => {
     const eArr2 = [];
